@@ -15,11 +15,10 @@ class Segment:
 
     regexp = "[^\W\d_]+"
 
-    def __init__(self, tag, segment_class):
+    def __init__(self, tag):
         self.tags = [tag]
         self.word_density = None
         self.index = 0.0
-        self.sclass = segment_class
 
     def __str__(self):
         return "".join([str(i) for i in self.tags])
