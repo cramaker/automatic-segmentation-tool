@@ -39,7 +39,7 @@ def prep(html_doc):
     doc = re.sub("[\s]+", " ", html_doc)
     soup = BeautifulSoup(doc)
 
-    stripped = ["script", "noscript", "link", "iframe", "meta", "style"]
+    stripped = ["script", "noscript", "iframe", "meta", "style"]
 
     body = soup.find("body")
     for s in body.find_all(stripped):
@@ -48,6 +48,6 @@ def prep(html_doc):
     comments = soup.findAll(text=lambda text: isinstance(text, element.Comment))
     [comment.extract() for comment in comments]
 
-    return body
+    return Segment(body)
 
 
